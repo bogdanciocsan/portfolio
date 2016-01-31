@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+        <h1 class="page-title">My photos</h1>
+        <p class="photos-intro-text">Here is my recent photo gallery, updated with content from my deviantart account.
+            <br/> Unfortunately I did not have so much time to be involved with photography in the last few years, but I am trying to get slowly back on track.</p>
+    </div>
+</div>
+<div class="row content-hide slow">
+    <div class="col-sm-10 col-sm-offset-1 photo-grid" masonry preserve-order reload-on-show reload-on-resize masonry-options="photoOptions" column-width=".grid-sizer">
+        <div class="masonry-brick grid-sizer photo-item" ng-repeat="item in galleries | orderBy: -devDate ">
+            <h3 class="title" ng-bind="item.title"></h3>
+            <p class="date">{{item.devDate | date:"d MMMM yyyy"}}</p>
+            <p class="description" ng-bind="item.devText | fixhtml"></p>
+            <img ng-src="{{item.url}}" alt="{{item.title}}" class="img-responsive visible-xs">
+            <a href="#" ng-click="openPhoto(item.url, item.title)" class="hidden-xs">
+                <img ng-src="{{item.url}}" alt="{{item.title}}" class="img-responsive">
+            </a>
+        </div>
+    </div>
+</div>

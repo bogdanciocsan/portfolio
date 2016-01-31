@@ -1,1 +1,1 @@
-var portfolioApp = angular.module('myApp',['wu.masonry','ngResource', 'ngRoute', 'ngDialog']);
+var portfolioApp = angular.module('portfolioApp',['wu.masonry','ngResource', 'ngRoute', 'ngDialog']);

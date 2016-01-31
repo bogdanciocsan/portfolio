@@ -5,7 +5,9 @@
         <title>Web developer - Bogdan Ciocsan - Copenhagen area</title>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <meta name="description" content="Bogdan Ciocsan - web developer currently based in the Copenhagen area" />
+        <base href="/" />
         <meta name="keywords" content="web developer, c#, umbraco, copenhagen, bogdan ciocsan, bogdanciocsan, bogdan, ciocsan, photography, landscape, nature, photography">
+        <meta name="fragment" content="!">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Monda:400" rel="stylesheet" />
         <link href="css/style.css?v1.0.2" rel="stylesheet" />
@@ -24,8 +26,8 @@
     <body ng-app="portfolioApp" ng-controller="MyCtrl" ng-cloak>
         <div class="container-fluid">
             <nav class="nav">
-                <a ng-href="#/web" ng-class="{active: !showPhotos }">Web</a>
-                <a ng-href="#/photos" ng-class="{active: showPhotos }">Photography</a>
+                <a ng-href="web" ng-class="{active: !showPhotos }">Web</a>
+                <a ng-href="photos" ng-class="{active: showPhotos }">Photography</a>
             </nav>
         </div>
         <div class="wrapper container">

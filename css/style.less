@@ -87,6 +87,9 @@ pre.prettyprint {
     padding-left:15px;
     margin-bottom:10px;
     margin-top:10px;
+    @media only screen and (max-width:767px) {
+      word-wrap:break-word;
+    }
 }
 
 .dialog-title {
@@ -169,13 +172,16 @@ pre.prettyprint {
 
 
 /* 3 columns by default */
-.grid-sizer { 
-    width: 92.5%; 
+.grid-sizer {
+    width: 92.5%;
+    @media screen and (max-width:991px) {
+      padding-left: 8px;
+    }
     @media screen and (min-width: 992px) {
-        width: 46.5%; 
+        width: 46.5%;
     }
     @media screen and (min-width: 1200px) {
-        width: 47.5%; 
+        width: 47.5%;
     }
 
 }
@@ -213,7 +219,7 @@ a.symbol:before {
 }
 .headline {
     margin-top:0;
-    margin-bottom:5px;   
+    margin-bottom:5px;
 }
 .sub-headline {
     color:#D15725;
@@ -231,13 +237,13 @@ body {
 }
 
 .text-uppercase {
-    text-transform: uppercase; 
+    text-transform: uppercase;
 }
 .text-center {
     text-align:center;
 }
 .intro-text {
-    font-size:1.2em; 
+    font-size:1.2em;
     padding-bottom:20px;
 }
 
@@ -313,13 +319,13 @@ h5 {
     text-decoration:none;
 }
 .skills, .content {
-    padding-top:10px; 
+    padding-top:10px;
 }
 .content .img-center {
     margin: 0 auto;
     padding-bottom:20px;
 }
-.skills .badge { 
+.skills .badge {
     min-width:120px;
     padding:10px;
     text-align: center;
@@ -327,7 +333,7 @@ h5 {
 }
 
 .skills .skill {
-    font-size:13px; 
+    font-size:13px;
     margin-bottom:11px;
 }
 .aboutme, .experience, .education, .kontakt-mig {
@@ -405,6 +411,9 @@ img {
        width:95%;
        display:block;
        float:left;
+    }
+    @media only screen and (max-width:991px) {
+      padding-bottom:15px;
     }
 }
 

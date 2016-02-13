@@ -1988,6 +1988,11 @@ pre.prettyprint {
   margin-bottom: 10px;
   margin-top: 10px;
 }
+@media only screen and (max-width: 767px) {
+  pre.prettyprint {
+    word-wrap: break-word;
+  }
+}
 .dialog-title {
   margin-bottom: 15px;
   font-size: 13px;
@@ -2092,6 +2097,11 @@ pre.prettyprint {
 /* 3 columns by default */
 .grid-sizer {
   width: 92.5%;
+}
+@media screen and (max-width: 991px) {
+  .grid-sizer {
+    padding-left: 8px;
+  }
 }
 @media screen and (min-width: 992px) {
   .grid-sizer {
@@ -2322,6 +2332,11 @@ img {
   width: 95%;
   display: block;
   float: left;
+}
+@media only screen and (max-width: 991px) {
+  .blog-post {
+    padding-bottom: 15px;
+  }
 }
 .read-more {
   color: #000;

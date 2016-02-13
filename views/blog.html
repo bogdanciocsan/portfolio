@@ -6,10 +6,10 @@
 </div>
 <div class="row content-hide slow blog-grid" >
     <div class="col-sm-offset-1 col-sm-10 blog-post margin-bottom-15" ng-repeat="post in blogposts">
-        <h3 class="title">{{post.title.rendered}}</h3>
+        <h3 class="title"><a ng-href="blog/posts/{{post.slug}}">{{post.title.rendered}}</a></h3>
         <p class="date">{{post.date | date:"d MMMM yyyy"}}</p>
         <div ng-bind-html="post.excerpt.rendered | sanitize" class="description">
-        </div
-        <a ng-href="blog/posts/{{post.slug}}" class="read-more margin-bottom-15">Read more</a>
+        </div>
+        <a ng-href="blog/posts/{{post.slug}}" class="read-more">Read more</a>
     </div>
 </div>

@@ -1,19 +1,19 @@
 
 portfolioApp.controller('WebCtrl', ['$scope', '$window', '$rootScope', function($scope, $window, $rootScope) {
-    $rootScope.showPhotos = false;
+    $rootScope.state = 'web';
     $scope.sendMail = function() {
         $window.location = "mailto:design@bogdanciocsan.com?subject=Portfolio request";
     }
 }]).controller('PhotosCtrl', ['$scope', '$rootScope','ngDialog', function($scope, $rootScope, ngDialog) {
-    $rootScope.showPhotos = true;
+    $rootScope.state = 'photos';
 
     $scope.openPhoto = function(url, title) {
         var templateString = "<div class='row'>"+ 
-                      "<div class='col-sm-12'>" +
-                      "<h3 class='dialog-title'>" + title + "</h3>" +
-                      "<img class='img-responsive' src='" + url + "' alt='large' />"
-                      "</div>"+
-                      "</div>";
+            "<div class='col-sm-12'>" +
+            "<h3 class='dialog-title'>" + title + "</h3>" +
+            "<img class='img-responsive' src='" + url + "' alt='large' />"
+        "</div>"+
+            "</div>";
         ngDialog.open({
             template: templateString,
             plain: true
@@ -56,4 +56,28 @@ portfolioApp.controller('WebCtrl', ['$scope', '$window', '$rootScope', function(
             }
         });
     });
+}]).controller('BlogCtrl',['$scope','$http','$rootScope', function($scope, $http,$rootScope) {
+    $rootScope.state = 'blog';
+    $http.get('http://bogdan.dk/wp-blog/cms/wp-json/wp/v2/posts').then(function(res) {
+        console.log(res); 
+        if(res) {
+            $scope.blogposts = res.data;
+        }
+    }, function(err) {
+        console.log(err);
+    });   
+}]).controller('BlogSingleCtrl',['$scope','$http','$rootScope','$routeParams', function($scope, $http,$rootScope, $routeParams) {
+    $rootScope.state = 'blog';
+    
+    $scope.postURL = 'http://bogdan.dk/wp-blog/cms/wp-json/wp/v2/posts?slug=' + $routeParams.id;
+    $http.get($scope.postURL).then(function(res) {
+        console.log(res); 
+        if(res) {
+            $scope.post = res.data[0];
+            
+            setTimeout(prettyPrint,100);
+        }
+    }, function(err) {
+        console.log(err);
+    });   
 }]);

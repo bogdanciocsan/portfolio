@@ -8,6 +8,8 @@
         <base href="/" />
         <meta name="keywords" content="web developer, c#, umbraco, copenhagen, bogdan ciocsan, bogdanciocsan, bogdan, ciocsan, photography, landscape, nature, photography">
         <meta name="fragment" content="!">
+        
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Monda:400" rel="stylesheet" />
         <link href="css/style.css?v1.0.2" rel="stylesheet" />
@@ -26,8 +28,9 @@
     <body ng-app="portfolioApp" ng-controller="MyCtrl" ng-cloak>
         <div class="container-fluid">
             <nav class="nav">
-                <a ng-href="web" ng-class="{active: !showPhotos }">Web</a>
-                <a ng-href="photos" ng-class="{active: showPhotos }">Photography</a>
+                <a ng-href="web" ng-class="{active: state === 'web' }">Web</a>
+                <a ng-href="photos" ng-class="{active: state === 'photos' }">Photography</a>
+                <a ng-href="blog" ng-class="{active: state === 'blog' }">Blog</a>
             </nav>
         </div>
         <div class="wrapper container">
@@ -47,7 +50,7 @@
                 <a href="https://www.instagram.com/bogdanciocsan" id="instagram" target="_blank" class="symbol">&#xe300;</a>
             </span>
         </div>
-        <script src="plugins/plugins.min.js?v2"></script>
-        <script src="js/app.min.js?v3"></script>
+        <script src="plugins/plugins.min.js?v2.1"></script>
+        <script src="js/app.min.js?v3.1"></script>
     </body>
 </html>

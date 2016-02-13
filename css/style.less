@@ -37,6 +37,58 @@ Portfolio - jan. 2016
     font-weight: normal;
     font-style: normal;
 }
+
+/*
+ * Derived from einaros's Sons of Obsidian theme at
+ * http://studiostyl.es/schemes/son-of-obsidian by
+ * Alex Ford of CodeTunnel:
+ * http://CodeTunnel.com/blog/post/71/google-code-prettify-obsidian-theme
+ */
+/* desert scheme ported from vim to google prettify */
+pre.prettyprint { display: block; background-color: #333 }
+pre .nocode { background-color: none; color: #000 }
+pre .str { color: #ffa0a0 } /* string  - pink */
+pre .kwd { color: #f0e68c; font-weight: bold }
+pre .com { color: #87ceeb } /* comment - skyblue */
+pre .typ { color: #98fb98 } /* type    - lightgreen */
+pre .lit { color: #cd5c5c } /* literal - darkred */
+pre .pun { color: #fff }    /* punctuation */
+pre .pln { color: #fff }    /* plaintext */
+pre .tag { color: #f0e68c; font-weight: bold } /* html/xml tag    - lightyellow */
+pre .atn { color: #bdb76b; font-weight: bold } /* attribute name  - khaki */
+pre .atv { color: #ffa0a0 } /* attribute value - pink */
+pre .dec { color: #98fb98 } /* decimal         - lightgreen */
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE } /* IE indents via margin-left */
+li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
+/* Alternate shading for lines */
+li.L1,li.L3,li.L5,li.L7,li.L9 { }
+
+@media print {
+  pre.prettyprint { background-color: none }
+  pre .str, code .str { color: #060 }
+  pre .kwd, code .kwd { color: #006; font-weight: bold }
+  pre .com, code .com { color: #600; font-style: italic }
+  pre .typ, code .typ { color: #404; font-weight: bold }
+  pre .lit, code .lit { color: #044 }
+  pre .pun, code .pun { color: #440 }
+  pre .pln, code .pln { color: #000 }
+  pre .tag, code .tag { color: #006; font-weight: bold }
+  pre .atn, code .atn { color: #404 }
+  pre .atv, code .atv { color: #060 }
+}
+a, a:focus, a:hover {
+   color:#d15725
+}
+
+pre.prettyprint {
+    padding-bottom:18px;
+    padding-left:15px;
+    margin-bottom:10px;
+    margin-top:10px;
+}
+
 .dialog-title {
     margin-bottom:15px;
     font-size:13px;
@@ -175,10 +227,7 @@ body {
     background-color:#4D2E29;
     font-family:'Open Sans', sans-serif;
     font-weight:400;
-    text-align:center;
-    @media only screen and (min-width:768px) {
-        text-align: left;
-    }
+    text-align:left;
 }
 
 .text-uppercase {
@@ -329,13 +378,56 @@ img {
     line-height:24px;
 }
 
-.photo-grid {
+.masonry-grid {
     min-height:700px;
+    &.small {
+        min-height:250px;
+    }
 }
 
-.photo-item {
+.blog-grid {
+    min-height:180px;
+    &.large {
+        min-height:500px;
+    }
+}
+
+.no-margin {
+    margin-bottom:0;
+}
+
+.margin-bottom-15 {
+    margin-bottom:15px;
+}
+
+.blog-post {
+    .description {
+       width:95%;
+       display:block;
+       float:left;
+    }
+}
+
+.read-more {
+    color: #000;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid #000;
+    float: left;
+    display: block;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    margin-top: 5px;
+    &:hover, &:focus {
+        color: #000;
+    }
+}
+
+.photo-item, .blog-post {
     .title {
         margin-bottom:0px;
+        font-size:1.5em;
+        line-height:1.6em;
         a:focus, a:hover,a {
             color:#000;
         }
@@ -359,6 +451,9 @@ img {
         padding:15px 15px 0 15px;
     }
 }
+
+
+
 .wrapper.footer-links {
     text-align: center;
     background:none; margin-top:0px;

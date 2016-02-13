@@ -1,7 +1,19 @@
- RewriteEngine on
-    RewriteCond %{REQUEST_FILENAME} -s [OR]
-    RewriteCond %{REQUEST_FILENAME} -l [OR]
-    RewriteCond %{REQUEST_FILENAME} -d
-    RewriteRule ^.*$ - [NC,L]
+ RewriteEngine On
+# If requested resource exists as a file or directory
+  # (REQUEST_FILENAME is only relative in virtualhost context, so not usable)
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+    # Go to it as is
+    RewriteRule ^ - [L]
 
-    RewriteRule ^(.*) /index.html [NC,L]
+  # If non existent
+    # If path ends with / and is not just a single /, redirect to without the trailing /
+      RewriteCond %{REQUEST_URI} ^.*/$
+      RewriteCond %{REQUEST_URI} !^/$
+      RewriteRule ^wp - [L,NC]
+      RewriteRule ^(.*)/$ $1 [R,QSA,L]      
+
+  # If non existent
+    # Accept everything on index.html
+    RewriteRule ^ /index.html
+

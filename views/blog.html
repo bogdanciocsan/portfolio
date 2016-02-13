@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+        <h1 class="page-title">Blog</h1>
+        <p class="photos-intro-text">Here is my personal blog, where I write stuff about coding and tools that I use, I also will write from time to time some personal posts, but I will mostly focus on coding related posts.</p>
+    </div>
+</div>
+<div class="row content-hide slow blog-grid" >
+    <div class="col-sm-offset-1 col-sm-10 blog-post margin-bottom-15" ng-repeat="post in blogposts">
+        <h3 class="title">{{post.title.rendered}}</h3>
+        <p class="date">{{post.date | date:"d MMMM yyyy"}}</p>
+        <div ng-bind-html="post.excerpt.rendered | sanitize" class="description">
+        </div>
+        <a ng-href="blog/posts/{{post.slug}}" class="read-more">Read more</a>
+    </div>
+</div>

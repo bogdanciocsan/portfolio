@@ -10,7 +10,15 @@ portfolioApp.config(['$routeProvider','$locationProvider',
                              templateUrl: 'views/photos.html',
                              controller: 'PhotosCtrl'
                          }).
-                         otherwise({
+                         when("/blog", {
+                            templateUrl: 'views/blog.html',
+                             controller: 'BlogCtrl' 
+                         })
+                         .when("/blog/posts/:id", {
+                             templateUrl: 'views/single-blog.html',
+                             controller: 'BlogSingleCtrl'
+                         })
+                         .otherwise({
                              redirectTo: '/web'
                          });
                          $locationProvider.html5Mode(true);

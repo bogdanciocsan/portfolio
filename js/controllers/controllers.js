@@ -8,7 +8,7 @@ portfolioApp.controller('WebCtrl', ['$scope', '$window', '$rootScope', function(
     $rootScope.state = 'photos';
 
     $scope.openPhoto = function(url, title) {
-        var templateString = "<div class='row'>"+ 
+        var templateString = "<div class='row'>"+
             "<div class='col-sm-12'>" +
             "<h3 class='dialog-title'>" + title + "</h3>" +
             "<img class='img-responsive' src='" + url + "' alt='large' />"
@@ -20,9 +20,9 @@ portfolioApp.controller('WebCtrl', ['$scope', '$window', '$rootScope', function(
         });
     };
 
-    $scope.photoOptions = { 
-        'transitionDuration': 0, 
-        'gutter': 20, 
+    $scope.photoOptions = {
+        'transitionDuration': 0,
+        'gutter': 20,
         'itemSelector': '.grid-sizer',
         'originLeft': false,
         'originTop': true
@@ -37,9 +37,9 @@ portfolioApp.controller('WebCtrl', ['$scope', '$window', '$rootScope', function(
                 $scope.galleries = [];
                 if(entries.length > 0) {
                     for (var i=0; i < entries.length; i++) {
-                        var media = entries[i].mediaGroups; 
+                        var media = entries[i].mediaGroups;
                         //                        console.log(entries[i]);
-                        if (media.length > 0) { 
+                        if (media.length > 0) {
                             if (media[0].contents[0]) {
                                 if (media[0].contents.length > 0) {
                                     var orgArray = media[0].contents[0];
@@ -59,25 +59,25 @@ portfolioApp.controller('WebCtrl', ['$scope', '$window', '$rootScope', function(
 }]).controller('BlogCtrl',['$scope','$http','$rootScope', function($scope, $http,$rootScope) {
     $rootScope.state = 'blog';
     $http.get('http://bogdan.dk/wp-blog/cms/wp-json/wp/v2/posts').then(function(res) {
-        console.log(res); 
+        // console.log(res);
         if(res) {
             $scope.blogposts = res.data;
         }
     }, function(err) {
         console.log(err);
-    });   
-}]).controller('BlogSingleCtrl',['$scope','$http','$rootScope','$routeParams', function($scope, $http,$rootScope, $routeParams) {
+    });
+}]).controller('BlogSingleCtrl',['$scope','$http','$rootScope','$routeParams','$timeout',
+ function($scope, $http,$rootScope, $routeParams, $timeout) {
     $rootScope.state = 'blog';
-    
+
     $scope.postURL = 'http://bogdan.dk/wp-blog/cms/wp-json/wp/v2/posts?slug=' + $routeParams.id;
     $http.get($scope.postURL).then(function(res) {
-        console.log(res); 
+        // console.log(res);
         if(res) {
             $scope.post = res.data[0];
-            
-            setTimeout(prettyPrint,100);
+            $timeout(prettyPrint,100);
         }
     }, function(err) {
         console.log(err);
-    });   
+    });
 }]);

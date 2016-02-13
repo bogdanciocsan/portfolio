@@ -2357,7 +2357,13 @@ img {
 .blog-post .title {
   margin-bottom: 0px;
   font-size: 1.5em;
-  line-height: 1.6em;
+  line-height: 1.3em;
+}
+@media only screen and (min-width: 992px) {
+  .photo-item .title,
+  .blog-post .title {
+    line-height: 1.6em;
+  }
 }
 .photo-item .title a:focus,
 .blog-post .title a:focus,

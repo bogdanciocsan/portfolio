@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
-<html>
+<html ng-app="portfolioApp" ng-controller="MyCtrl">
     <head>
         <meta charset="utf-8">
-        <title>Web developer - Bogdan Ciocsan - Copenhagen area</title>
+        <title ng-bind="pageTitle"></title>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <meta name="description" content="Bogdan Ciocsan - web developer currently based in the Copenhagen area" />
         <base href="/" />
@@ -25,7 +25,7 @@
 
         </script>
     </head>
-    <body ng-app="portfolioApp" ng-controller="MyCtrl" ng-cloak>
+    <body ng-cloak>
         <div class="container-fluid">
             <nav class="nav">
                 <a ng-href="web" ng-class="{active: state === 'web' }">Web</a>

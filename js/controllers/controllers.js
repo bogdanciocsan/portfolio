@@ -1,11 +1,13 @@
 
 portfolioApp.controller('WebCtrl', ['$scope', '$window', '$rootScope', function($scope, $window, $rootScope) {
     $rootScope.state = 'web';
+    $rootScope.pageTitle = "Web developer - Bogdan Ciocsan - Copenhagen area";
     $scope.sendMail = function() {
         $window.location = "mailto:design@bogdanciocsan.com?subject=Portfolio request";
     }
 }]).controller('PhotosCtrl', ['$scope', '$rootScope','ngDialog', function($scope, $rootScope, ngDialog) {
     $rootScope.state = 'photos';
+    $rootScope.pageTitle = "Photo gallery - Bogdan Ciocsan";
 
     $scope.openPhoto = function(url, title) {
         var templateString = "<div class='row'>"+
@@ -57,6 +59,7 @@ portfolioApp.controller('WebCtrl', ['$scope', '$window', '$rootScope', function(
         });
     });
 }]).controller('BlogCtrl',['$scope','$http','$rootScope', function($scope, $http,$rootScope) {
+    $rootScope.pageTitle = "Blog - Bogdan Ciocsan";
     $rootScope.state = 'blog';
     $http.get('http://bogdan.dk/wp-blog/cms/wp-json/wp/v2/posts').then(function(res) {
         // console.log(res);
@@ -67,17 +70,19 @@ portfolioApp.controller('WebCtrl', ['$scope', '$window', '$rootScope', function(
         console.log(err);
     });
 }]).controller('BlogSingleCtrl',['$scope','$http','$rootScope','$routeParams','$timeout',
- function($scope, $http,$rootScope, $routeParams, $timeout) {
-    $rootScope.state = 'blog';
-
-    $scope.postURL = 'http://bogdan.dk/wp-blog/cms/wp-json/wp/v2/posts?slug=' + $routeParams.id;
-    $http.get($scope.postURL).then(function(res) {
-        // console.log(res);
-        if(res) {
-            $scope.post = res.data[0];
-            $timeout(prettyPrint,100);
-        }
-    }, function(err) {
-        console.log(err);
-    });
-}]);
+                                 function($scope, $http,$rootScope, $routeParams, $timeout) {
+                                     $rootScope.state = 'blog';
+                                     $scope.postURL = 'http://bogdan.dk/wp-blog/cms/wp-json/wp/v2/posts?slug=' + $routeParams.id;
+                                     $http.get($scope.postURL).then(function(res) {
+                                         // console.log(res);
+                                         if(res) {
+                                             $scope.post = res.data[0];
+                                             if ($scope.post.title.rendered) {
+                                                 $rootScope.pageTitle = $scope.post.title.rendered + " - Blog - Bogdan Ciocsan";
+                                             }
+                                             $timeout(prettyPrint,100);
+                                         }
+                                     }, function(err) {
+                                         console.log(err);
+                                     });
+                                 }]);

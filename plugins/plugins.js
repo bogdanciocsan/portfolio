@@ -7,4 +7,3 @@
 // @koala-append   '../bower_components/ev-emitter/ev-emitter.js'
 // @koala-append  '../bower_components/fizzy-ui-utils/utils.js'
 // @koala-append   '../bower_components/outlayer/item.js'
-// @koala-append  '../bower_components/outlayer/outlayer.js'

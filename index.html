@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html ng-app="portfolioApp" ng-controller="MyCtrl">
+<html ng-app="portfolioApp">
     <head>
         <meta charset="utf-8">
         <title ng-bind="pageTitle"></title>
@@ -25,7 +25,7 @@
 
         </script>
     </head>
-    <body ng-cloak>
+    <body ng-cloak ng-controller="MyCtrl">
         <div class="container-fluid">
             <nav class="nav">
                 <a ng-href="web" ng-class="{active: state === 'web' }">Web</a>
@@ -51,8 +51,8 @@
             </span>
         </div>
 
-        <script src="plugins/plugins.min.js?v2.1"></script>
-        <script src="plugins/angularjs.min.js"></script>
-        <script src="js/app.min.js?v3.1"></script>
+        <script src="plugins/plugins.min.js?v2.1.1"></script>
+        <script src="plugins/angularjs.min.js?1.1"></script>
+        <script src="js/app.min.js?v3.2"></script>
     </body>
 </html>

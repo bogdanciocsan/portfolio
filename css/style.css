@@ -2336,6 +2336,7 @@ img {
 @media only screen and (max-width: 991px) {
   .blog-post {
     padding-bottom: 15px;
+    float:left;
   }
 }
 .read-more {

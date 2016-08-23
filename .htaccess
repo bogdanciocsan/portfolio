@@ -1,4 +1,4 @@
- RewriteEngine On
+RewriteEngine On
 # If requested resource exists as a file or directory
   # (REQUEST_FILENAME is only relative in virtualhost context, so not usable)
     RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
@@ -9,11 +9,10 @@
   # If non existent
     # If path ends with / and is not just a single /, redirect to without the trailing /
       RewriteCond %{REQUEST_URI} ^.*/$
-      RewriteCond %{REQUEST_URI} !^/$
+      RewriteCond %{REQUEST_URI} !^/$(css¦jpg¦gif¦zip¦js)
       RewriteRule ^wp - [L,NC]
-      RewriteRule ^(.*)/$ $1 [R,QSA,L]      
+      RewriteRule ^(.*)/$ $1  [R,QSA,L]
 
   # If non existent
     # Accept everything on index.html
     RewriteRule ^ /index.html
-
